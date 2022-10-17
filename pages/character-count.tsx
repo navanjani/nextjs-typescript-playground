@@ -27,6 +27,10 @@ const CharacterCount: NextPage = () => {
   };
   const numberOfWords = wordCount(text);
 
+  const byteSize = (str: string) => {
+    return str ? new Blob([str]).size : 0;
+  };
+
   return (
     <Container>
       <Grid mt={10}>
@@ -84,7 +88,7 @@ const CharacterCount: NextPage = () => {
           <Item
             sx={{ border: "1px solid #00008B", fontSize: 16, color: "#00008B" }}
           >
-            bytes
+            {byteSize(text)} byte(s)
           </Item>
         </Grid>
       </Grid>
